@@ -31,6 +31,4 @@ class Celula {
   }
 };
 
-module.export = {
-  Celula
-}
+module.exports = Celula;
