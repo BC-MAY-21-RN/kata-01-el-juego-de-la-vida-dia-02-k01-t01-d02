@@ -4,8 +4,8 @@ const Celula = require('./Celula');
 
 class Game {
   constructor () {
-    this.rows = 4
-    this.columns = 8
+    this.rows = 32
+    this.columns = 64
     this.resultArrayCell = ''
     this.resutNewArray = ''
     this.newArray = []
@@ -31,18 +31,18 @@ class Game {
   }
 
   initGame () {
-    // resultArrayCell = ''
+    let resultArrayCell = ''
     this.createArrayCell()
     for (let x = 0; x < this.rows; x++) {
       for (let y = 0; y < this.columns; y++) {
         const randomvar = Math.random()
         this.arrayCells[x][y] = this.checkRamdomVar(randomvar, this.arrayCells[x][y])
-        this.resultArrayCell += this.arrayCells[x][y].toString()
+        resultArrayCell += this.arrayCells[x][y].toString()
       }
-      this.resultArrayCell += '\n'
+      resultArrayCell += '\n'
     }
     this.newArray = this.arrayCells
-    return this.resultArrayCell
+    return resultArrayCell
   }
 
   showResult (array) {
@@ -126,6 +126,7 @@ class Game {
     for (let i = 0; i < numberOfGenerations; i++) {
       console.log('generacion:' + (i + 1))
       this.iteration(this.arrayCells)
+      // console.log(this.arrayCells)
       const showRes = this.showResult(this.newArray)
       console.log(showRes)
       this.arrayCells = this.newArray
@@ -133,8 +134,8 @@ class Game {
   }
 }
 
-new Game().play()
 const newcell = new Celula(0, 4)
+new Game().play()
 
 //play()
 //const newcell = new Celula(0, 4)
