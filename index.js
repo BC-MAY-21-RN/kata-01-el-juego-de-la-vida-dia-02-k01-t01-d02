@@ -64,23 +64,23 @@ class Game {
 
   rulesCell (cell, rows, columns) {
     if ((cell.getLife() == 1) && (cell.getNeighbors() < 2)) {
-      newArray[rows][columns].setLife(0)
-    } else if ((cell.getLife() == 1) && (cell.getNeighbors() > 3)) {
-      newArray[rows][columns].setLife(0)
-    } else if ((cell.getLife() == 0) && (cell.getNeighbors() == 3)) {
-      newArray[rows][columns].setLife(1)
+      newArray[this.rows][this.columns].setLife(0)
+    } else if ((this.cell.getLife() == 1) && (cell.getNeighbors() > 3)) {
+      newArray[this.rows][this.columns].setLife(0)
+    } else if ((this.cell.getLife() == 0) && (cell.getNeighbors() == 3)) {
+      newArray[this.rows][this.columns].setLife(1)
     } else {
-      newArray[rows][columns] = cell
+      newArray[this.rows][this.columns] = this.cell
     }
   }
 
   checkRamdomVar (randomvar, arrayCells) {
     if (randomvar >= 0.5) {
-      arrayCells = new Celula(0, 0)
+      this.arrayCells = new Celula(0, 0)
     } else {
-      arrayCells = new Celula(1, 0)
+      this.arrayCells = new Celula(1, 0)
     }
-    return arrayCells
+    return this.arrayCells
   }
 
   iteration (ParamarrayCells) {
